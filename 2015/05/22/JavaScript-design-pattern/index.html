@@ -1,0 +1,652 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+    <meta name="description" content="前端 | 生活 | 碎碎念" />
+
+
+
+  <meta name="keywords" content="设计模式," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴化吉 | 我的博客" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> JavaScript几种常见的设计模式 // 吴化吉 | 我的博客 </title>
+</head>
+
+<body>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">吴化吉 | 我的博客</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/resume0">
+            <i class="menu-item-icon icon-resume"></i> <br />
+            menu.resume
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              JavaScript几种常见的设计模式
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-22
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/前端/">前端</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/22/JavaScript-design-pattern/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/22/JavaScript-design-pattern/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <h3 id="工厂模式">工厂模式</h3><pre><code>function <span class="literal">factory</span>(name,age,sex){
+<span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();
+o.name = name;
+o.age = age;
+o.sex  = sex;
+<span class="keyword">return</span> o
+}
+
+<span class="keyword">var</span> a = <span class="literal">factory</span>(<span class="string">"jack"</span>,<span class="number">25</span>,<span class="string">"man"</span>);
+<span class="keyword">var</span> b = <span class="literal">factory</span>(<span class="string">"mike"</span>,<span class="number">20</span>,<span class="string">"women"</span>);
+</code></pre><p>在这里<code>factory函数</code>就是一个工厂，给它传递三个参数，就会返回一个包含有这三个函数的对象，就不用每次手动去生成对象了。<br>但是工厂模式有一个缺点：不能识别对象的类型。</p>
+<h3 id="构造函数模式">构造函数模式</h3><pre><code>function <span class="keyword">Person</span>(name,age,sex){
+this.name = name;
+this.age = age;
+this.sex = sex;
+this.<span class="keyword">say</span>=function(){
+    console.log(<span class="string">"hello"</span>);
+}
+}
+var p1 = new <span class="keyword">Person</span>(<span class="string">"张三"</span>,12,<span class="string">"man"</span>);
+var p2 = new <span class="keyword">Person</span>(<span class="string">"李四"</span>,15,<span class="string">"man"</span>);
+</code></pre><p>这里与工厂模式的区别是，直接把age,name ,sex这些付给this对象，那么当我通过 var p1 = new Person() 创建对象的时候，就创建了一个Person类型的对象，并且把参数作为对象的属性赋值给了p1。</p>
+<p>那么<code>function Persion()</code>,就作为p1,p2的构造函数，所以p1,p2就有一个<code>constructor</code>属性指向<code>Person</code></p>
+<pre><code>console.<span class="built_in">log</span>(p1.constructor);
+//[<span class="function"><span class="keyword">Function</span></span> Person]
+</code></pre><p>与工厂模式相比，就能识别出对象的类型，例如这里就能识别出对象是一个<code>Person</code>类型。</p>
+<p><strong>值得注意的是，如果构造函数不是通过new来使用，而是直接调用，那么它与普通函数没有什么区别，this就指向当前环境的对象（如果在对象中，就是某个对象如果在全局中，就指向window）</strong></p>
+<p>构造函数的缺点，需要多次创建函数对象。那么可以考虑，能否将每个对象的共同部分抽象出来。那么<strong>原型模式</strong>就呼之欲出了。</p>
+<h3 id="原型模式">原型模式</h3><p>要使用原型模式，首先要知道原型是什么意思，具体的可以看我上一篇的总结。这里简单说一下。</p>
+<p>当我们创建一个对象时，系统会自动为这个对象创建一个<code>原型对象</code>，并且这个对象的<code>[[prototyype]]</code>属性，指向这个<code>原型对象</code>，与此同时，<code>原型对象</code>里又有<code>[[constructor]]</code>属性指回这个对象。</p>
+<p>当对象寻找某个属性是，先在自己的属性里面查找，如果找不到，就向它的原型对象查找。</p>
+<p>举个例子：</p>
+<pre><code>function <span class="keyword">Person</span>(name){
+this.name = name;
+}
+<span class="keyword">Person</span>.prototype.age = 28;
+var p1= new <span class="keyword">Person</span>(<span class="string">"mike"</span>);
+var p2 = new <span class="keyword">Person</span>(<span class="string">"jack"</span>);
+console.log(p1.age);//28
+console.log(p2.age);//28
+</code></pre><p>在这里首先定义了Person函数，然后通过Person.prototype.age = 28 为它的原型对象添加一个属性age，并设置为28。然后在Person的实例p1,p2中访问age属性，实际上并没有，但是它们能通过向上一级，查找原型对象的属性，所以能打印出28。</p>
+<p>这里值得注意的是无论是p1,p2还是以后的pn,都共享了age=28这个属性，也就是说如果：</p>
+<pre><code><span class="keyword">Person</span>.prototype.age=29;
+</code></pre><p>那么p1,p2的age也会变为29。</p>
+<p>这与Java之类的语言中的<code>static</code>这个概念很类似，可以把二者联系起来类比。</p>
+<p>还需要注意的是，如果单方面修改实例的值，是为实例添加某个属性，而不会影响原型中的值。看代码：</p>
+<pre><code>console.log(p1.age);
+//28 这里的值来之<span class="keyword">Person</span>.prototype
+
+<span class="keyword">Person</span>.prototype.age=29;
+//修改原型中的值为29
+
+p1.age=30
+//p1并没有age这个属性，这一句实际上是为p1加上age这个属性并赋值30。并不影响原型中的age
+console.log(p1.age);
+//30
+//这里因为p1已经有age这个属性了，不用向原型中查找，所以直接打印30
+
+console.log(p2.age);
+//29
+//而p2还需要向原型中查找，而原型中的age并改为了29,所以打印29。
+</code></pre><p>介绍到这里，就可以解决了构造对象模式的缺点，把实例之间所共有的属性加入原型对象中，就不用每次创建对象是赋值共有属性了。</p>
+<h4 id="其他设计模式">其他设计模式</h4><p>这只是最基础的三种设计模式，还有很多的设计模式，但几乎都是这三种的变种或组合，我自己还没有很深的体会，暂且不表。</p>
+
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/"> #设计模式 </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/22/javascript-prototype/">JavaScript 原型链</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/21/javascript-scope/">JavaScript作用域链与闭包</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
+  </div>
+
+
+
+    
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2015/05/22/JavaScript-design-pattern/"
+               data-title="JavaScript几种常见的设计模式" data-url="http://wuhuaji.me/2015/05/22/JavaScript-design-pattern/">
+          </div>
+        
+      </div>
+    
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="吴化吉" />
+          <p class="site-author-name">吴化吉</p>
+        </div>
+        <p class="site-description motion-element">前端 | 生活 | 碎碎念</p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数模式"><span class="nav-number">2.</span> <span class="nav-text">构造函数模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">3.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其他设计模式"><span class="nav-number">3.1.</span> <span class="nav-text">其他设计模式</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">吴化吉</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wuhuaji"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
+</body>
+</html>

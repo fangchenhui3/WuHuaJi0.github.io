@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+body {
+  font-family: 'Microsoft YaHei light', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+}
+.fixed {
+  width: 100%;
+  min-width: 800px;
+  height: 52px;
+  background-color: #42474b;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+.fixed .fixed_content {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+.fixed .fixed_content p a {
+  text-decoration: none;
+  float: left;
+  font-size: 20px;
+  color: #FFFFFF;
+  line-height: 52px;
+}
+.fixed .fixed_content .link {
+  float: right;
+}
+.fixed .fixed_content .link a {
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 52px;
+  color: #FFFFFF;
+  display: inline-block;
+  margin: 0 20px;
+}
+#hello {
+  position: relative;
+  z-index: 0;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #22b573;
+  overflow: hidden;
+}
+#hello .content {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  margin-top: -80px;
+}
+#hello .content p {
+  font-size: 80px;
+  color: #fff;
+}
+#about {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  background-color: #1889c5;
+}
+#about #img {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  top: 60px;
+}
+#about #img img {
+  width: 200px;
+  height: 200px;
+  margin: 0 50px;
+  border-radius: 100px;
+}
+#about #img p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+}
+#about #img p a {
+  text-decoration: none;
+  color: #FF910C;
+}
+#about #img p a span {
+  color: #8B0000;
+  font-weight: bold;
+}
+#skill {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  min-height: 600px;
+  background-color: #9c58b6;
+}
+#skill .skill_content {
+  width: 800px;
+  position: relative;
+  top: 80px;
+  margin: 0 auto;
+  background-color: #ccc;
+}
+#skill .skill_content .skill_list {
+  width: 200px;
+  float: left;
+  border: 3px solid #ccc;
+  margin: 0 30px;
+}
+#skill .skill_content .skill_list p {
+  font-size: 25px;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+}
+#skill .skill_content .skill_list li {
+  height: 30px;
+  list-style: none;
+  font-size: 23px;
+  text-align: center;
+  color: #fff;
+}
+#skill .skill_content .skill_list li:hover {
+  background-color: #fff;
+  color: #000;
+}
+#skill .skill_content .detail {
+  position: absolute;
+  top: 240px;
+  height: 300px;
+}
+#skill .skill_content .detail .front li {
+  height: 30px;
+  list-style: none;
+  font-size: 23px;
+  text-align: left;
+  color: #fff;
+}
+#skill .skill_content .detail .end {
+  margin-top: 10px;
+}
+#skill .skill_content .detail .end li {
+  height: 30px;
+  list-style: none;
+  font-size: 23px;
+  text-align: right;
+  color: #fff;
+}
+#project {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  min-height: 600px;
+  background-color: #22b573;
+  position: relative;
+}
+#project .project_content {
+  width: 600px;
+  margin: 0 auto;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -300px;
+}
+#project .project_content section {
+  border: 8px solid #aaa;
+  border-radius: 10px;
+  margin: 20px;
+}
+#project .project_content section:hover {
+  background-color: #aaa;
+}
+#project .project_content section p {
+  font-size: 20px;
+  color: #ccc;
+}
+#project .project_content section p a {
+  text-decoration: none;
+}
+#project .project_content section li {
+  list-style: none;
+  font-size: 25px;
+  line-height: 40px;
+  color: #fff;
+}
+#desc {
+  position: relative;
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  min-height: 600px;
+  background-color: #26b1b6;
+}
+#desc #desc_content {
+  width: 500px;
+  background-color: #ccc;
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  margin-left: -250px;
+  border: 10px solid #789;
+  border-radius: 20px;
+}
+#desc #desc_content h2 {
+  font-size: 30px;
+}
+#desc #desc_content p {
+  text-indent: 50px;
+  margin: 10px;
+  font-size: 25px;
+}
+#contact {
+  width: 100%;
+  min-width: 800px;
+  height: 100%;
+  min-height: 600px;
+  background-color: #ed6461;
+  position: relative;
+}
+#contact #contact_content {
+  position: absolute;
+  width: 500px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+}
+#contact #contact_content h1 {
+  color: #8B0000;
+}
+#anchor {
+  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
