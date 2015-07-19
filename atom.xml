@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://wuhuaji.me//"/>
-  <updated>2015-07-07T11:49:54.642Z</updated>
+  <updated>2015-07-19T01:53:42.319Z</updated>
   <id>http://wuhuaji.me//</id>
   
   <author>
@@ -14,6 +14,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[test]]></title>
+    <link href="http://wuhuaji.me/2015/07/19/test/"/>
+    <id>http://wuhuaji.me/2015/07/19/test/</id>
+    <published>2015-07-19T01:53:22.000Z</published>
+    <updated>2015-07-19T01:53:42.319Z</updated>
+    <content type="html"><![CDATA[<p>hello world</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>hello world</p>
+]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[纸质书？电子书？]]></title>
