@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="初中," />
+  <meta name="keywords" content="吴化吉,前端,碎碎念" />
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-  <title> 回到过去 // 吴化吉 | 我的博客 </title>
+  <title> 吴化吉 | 我的博客 </title>
 </head>
 
 <body>
@@ -61,7 +61,9 @@
   </div>
 <![endif]-->
 
-  <div class="container one-column page-post-detail">
+  <div class="container one-column 
+   page-home 
+">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -153,9 +155,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-
   <div id="posts" class="posts-expand">
     
+      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -166,7 +168,9 @@
           
           
             
-              回到过去
+              <a class="post-title-link" href="/2015/05/21/javascript-scope/">
+                JavaScript作用域链与闭包
+              </a>
             
           
         </h1>
@@ -174,14 +178,14 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-07-14
+          发表于 2015-05-21
         </span>
 
         
           <span class="post-category">
             &nbsp; | &nbsp; 分类于
             
-              <a href="/categories/生活/">生活</a>
+              <a href="/categories/前端/">前端</a>
 
               
               
@@ -194,8 +198,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/07/14/back-to-yesterday/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/14/back-to-yesterday/"></span>
+            <a href="/2015/05/21/javascript-scope/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/21/javascript-scope/"></span>
             </a>
           </span>
           
@@ -209,58 +213,90 @@
       
 
       
-        <p>2015年7月14日上午，刚好有片刻闲暇，我只身一人，盯着烈日来到黎平二中，看看她变成了什么模样。</p>
-<p>算起来，2005年秋天去到黎平二中读初中，现在也有10年了，十年没想到这么快就过去了。回到旧地，一切还是老样子，她似乎变旧了一些，当年我们的那栋教学楼没想到还在，只是显得更加陈旧了，而当年刚刚启用的教学楼，也留下了岁的痕迹。</p>
-<p>当时正在施工，校园里并不“干净整洁”，我草草转了一圈，拍下两张以证明到此一游的相片也就出来了。</p>
-<p>我曾经看过一个电影《回到未来》，说是一个科学家老爷爷，发明了时光机器，然后回到了三十年前，改变了三十年前的历史，因而当他们回到现在时，因为过去被改变了，现在也被改变了（有点绕，推荐去看，非常有趣的电影）。有时候我也不禁会想，如果能回到过去，我会做些什么，而又如何影响我现在的生活？</p>
-<p>这是一个很鬼魅的问题，只可惜我们回不去了。</p>
+        
+          <p><strong>执行环境</strong><br>首先有一个<code>执行环境（execution context）</code>的概念，每一段代码都有自己的执行环境，这个执行环境对应着一个<code>变量对象</code>,每执行一段代码，就会把这段代码的环境压入<code>环境栈</code>中，执行之后再推出栈。</p>
+<p><strong>作用域链</strong><br>正如上面所说，函数在执行时，会创建一个<code>执行环境</code>,已经对应的<code>作用域链</code>，并且把内部的<code>[[scope]]</code>属性指向这个<code>作用域链</code>，并且把this，arguments，函数的参数来初始化函数的<code>活动对象（变量对象）</code>，在<code>作用域链</code>函数的自身的活动对象在第一位，外部的活动对象在第二位，外部的外部在第三位……依次类推。如果要寻找某个变量，如果在自己的活动对象里找不到，就依次向上一级寻找。</p>
+<p><strong>并且要特别注意，函数的作用域链，在函数的定义时就已经决定了。</strong></p>
+<p>这个说有点抽象，举个例子。<br>定义一个最简单的函数：</p>
+<pre><code><span class="keyword">var</span> foo=<span class="string">"foo"</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{
+<span class="keyword">var</span> foo = <span class="string">"bar"</span>;
+<span class="built_in">console</span>.log(foo);
+}
+test();
+<span class="comment">// bar</span>
+</code></pre><p>在这个函数里，因为它是在全局中定义，所以在定义这个函数时就决定了它的作用域链是这样的：<br>作用域链的第一位是<code>函数的活动对象</code>，这个活动对象有this ,arguments ,a 等参数。又因为是在全局作用域中定义的，作用域链的第二位，是<code>全局的变量对象</code>，包含全局作用域中的属性已经a 等等。</p>
+<p>在执行的时候，就会把这个作用域链压入到环境栈中。所以，在这个例子中，打印foo，就会优先从函数的活动对象找到foo 。所以是<code>bar</code>。</p>
+<p>但是如果是这样:</p>
+<pre><code>var foo=<span class="string">"foo"</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span>{</span>
+<span class="comment">// var foo = "bar";</span>
+console.<span class="built_in">log</span><span class="params">(foo)</span>;
+}
+test<span class="params">()</span>;
+<span class="comment">// foo</span>
+</code></pre><p>就会打印foo.</p>
+<h4 id="闭包">闭包</h4><p>闭包是指有权访问另一个函数作用域中的变量的函数。<br>这么说不好理解，举个例子：</p>
+<pre><code><span class="keyword">var</span> obj={
+test : <span class="string">"Jobs"</span>
+}
 
+<span class="function"><span class="keyword">function</span> <span class="title">fuc</span>(<span class="params">para</span>)</span>{
+<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Object</span>)</span>{
+    <span class="keyword">return</span> <span class="built_in">Object</span>[para];
+}
+}
+
+<span class="keyword">var</span> a = fuc(<span class="string">"test"</span>);
+<span class="built_in">console</span>.log(a(obj));
+<span class="comment">//Jobs</span>
+</code></pre><p>在这里，首先定义一个函数fuc，它返回一个匿名函数。<br>然后用调用这个函数，并用a接收函数的返回值，也就是说现在a指向这这个返回的函数，通过a(obj)调用函数。</p>
+<p>这里吊诡的地方在于，para是func的参数，在调用a()的时候，如何能使用para的值呢？</p>
+<p>如果理解了作用域链就知道了，这是可以的。首先对于函数func内部的匿名函数，它的作用域链的前端首先是自身的活动对象，下一级是func的变量对象，然后再到全局的变量对象。所以在需要使用para的时候，会一级级的找下去。</p>
+<p>这里内部的匿名函数能使用外部函数的变量，这就是闭包的原理。</p>
+<p>这里需要注意的是 var a = func(‘test’)，这一句之后，函数对象并没有销毁，因为返回的匿名函数的作用域链还在指向这个活动对象，知道匿名函数销毁后，函数这个活动对象才会被销毁。<strong>这也是为什么大量使用闭包，会对性能有影响的原因。</strong></p>
+<h4 id="JavaScript_的预编译">JavaScript 的预编译</h4><p>JS 每段代码在执行之前，有一个预编译的过程，会首先处理<code>var</code>关键字和<code>function</code>声明。</p>
+<p>这里引用鸟哥的<a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="external">描述</a></p>
+<blockquote>
+<p> 在调用函数执行之前, 会首先创建一个活动对象, 然后搜寻这个函数中的局部变量定义,和函数定义, 将变量名和函数名都做为这个活动对象的同名属性, 对于局部变量定义,变量的值会在真正执行的时候才计算, 此时只是简单的赋为undefined.</p>
+</blockquote>
+<p>所以，当我们有：</p>
+<pre><code>foo<span class="params">()</span>;
+<span class="comment">//foo</span>
+<span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span>{</span>
+    console.<span class="built_in">log</span><span class="params">(<span class="string">"foo"</span>)</span>;
+}
+</code></pre><p>这里似乎调用foo()之时，函数都还没有定义，怎么能打印出值呢？这里就是预编译的神奇之处，相当于已经把foo的声明提前了，所以能打印出值。</p>
+<p>但是函数表达式却不然，因为函数表达式是一个赋值（计算）的过程，这是要在执行当中才计算的。所以：</p>
+<pre><code>foo<span class="params">()</span>;
+<span class="comment">//foo is not defined</span>
+foo = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    console.<span class="built_in">log</span><span class="params">(<span class="string">"foo"</span>)</span>;
+}
+</code></pre>
+        
       
     </div>
 
     <div class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/初中/"> #初中 </a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/19/write-blog/">写博客这件事</a>
-            
-          </div>
-
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/07/07/ebook-and-paper-book/">纸质书？电子书？</a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </div>
   </div>
 
 
+    
+  </div>
 
-    
-
-    
-      <div class="comments" id="comments">
-        
-          <div class="ds-thread" data-thread-key="2015/07/14/back-to-yesterday/"
-               data-title="回到过去" data-url="http://wuhuaji.me/2015/07/14/back-to-yesterday/">
-          </div>
-        
-      </div>
-    
+  
+  <div class="pagination">
+    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </div>
 
 
@@ -283,15 +319,6 @@
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
       
 
       <div class="site-overview">
@@ -342,17 +369,6 @@
 
       </div>
 
-      
-        <div class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
-          <div class="post-toc">
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </div>
       
 
     </div>
@@ -415,145 +431,6 @@
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var $sidebarInner = $('.sidebar-inner');
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.didShow', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-          var self = this;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      $(indicator).velocity('stop').velocity({
-        opacity: action === 'show' ? 0.4 : 0
-      }, { duration: 100 });
-    }
-
-  });
-</script>
-
-
-  <script type="text/javascript" id="sidebar.nav">
-    $(document).ready(function () {
-      var html = $('html');
-
-      $('.sidebar-nav li').on('click', function () {
-        var item = $(this);
-        var activeTabClassName = 'sidebar-nav-active';
-        var activePanelClassName = 'sidebar-panel-active';
-        if (item.hasClass(activeTabClassName)) {
-          return;
-        }
-
-        var currentTarget = $('.' + activePanelClassName);
-        var target = $('.' + item.data('target'));
-
-        currentTarget.velocity('transition.slideUpOut', 200, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', 200)
-            .addClass(activePanelClassName);
-        });
-
-        item.siblings().removeClass(activeTabClassName);
-        item.addClass(activeTabClassName);
-      });
-
-      $('.post-toc a').on('click', function (e) {
-        e.preventDefault();
-        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        });
-      });
-
-      // Expand sidebar on post detail page by default, when post has a toc.
-      var $tocContent = $('.post-toc-content');
-      if (isDesktop() && CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    });
-  </script>
-
-
-
 
   <script type="text/javascript">
     $(document).ready(function () {

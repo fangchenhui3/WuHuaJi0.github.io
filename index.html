@@ -168,6 +168,164 @@
           
           
             
+              <a class="post-title-link" href="/2015/08/28/cn域名需要备案/">
+                cn域名需要备案
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-08-28
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/思考/">思考</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/28/cn域名需要备案/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/28/cn域名需要备案/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>刚才注册了一个<code>.cn</code>后缀的域名，虽然相比.com 域名low了一点，但确是我所中意的，没有多想就买了下来。</p>
+<p>设置解析时发现，需要备案才能通过域名访问。在对域名进行实名认证之后，还需要由<code>注册局审核</code>，也就是备按，如果五天之内不备案，就不能按域名访问了。</p>
+<p>什么是备案？也就是需要提交你的个人信息、网站分类内容诸如此类的信息，以便监管你，确保你的网站不会出现不该出现的信息，如果备案成功，网站的底部会出现一块“营业执照”，说明这个网站是“登记在案”的。</p>
+<p>备案是为了监管，监管是为了限制某些自由，这也和建立互联网防火墙的初衷一样。</p>
+<p>这让我感到绝望。</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/19/write-blog/">
+                写博客这件事
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-08-19
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/思考/">思考</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/08/19/write-blog/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/19/write-blog/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>算起来有一个多月没有写博客了，并非是不想写，而是不知道写什么，期间每每要写些什么，又总有一个声音在反驳。</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/14/back-to-yesterday/">
                 回到过去
               </a>
@@ -951,144 +1109,13 @@ console.log(p2.age);
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/21/javascript-scope/">
-                JavaScript作用域链与闭包
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-21
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/前端/">前端</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/21/javascript-scope/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/21/javascript-scope/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><strong>执行环境</strong><br>首先有一个<code>执行环境（execution context）</code>的概念，每一段代码都有自己的执行环境，这个执行环境对应着一个<code>变量对象</code>,每执行一段代码，就会把这段代码的环境压入<code>环境栈</code>中，执行之后再推出栈。</p>
-<p><strong>作用域链</strong><br>正如上面所说，函数在执行时，会创建一个<code>执行环境</code>,已经对应的<code>作用域链</code>，并且把内部的<code>[[scope]]</code>属性指向这个<code>作用域链</code>，并且把this，arguments，函数的参数来初始化函数的<code>活动对象（变量对象）</code>，在<code>作用域链</code>函数的自身的活动对象在第一位，外部的活动对象在第二位，外部的外部在第三位……依次类推。如果要寻找某个变量，如果在自己的活动对象里找不到，就依次向上一级寻找。</p>
-<p><strong>并且要特别注意，函数的作用域链，在函数的定义时就已经决定了。</strong></p>
-<p>这个说有点抽象，举个例子。<br>定义一个最简单的函数：</p>
-<pre><code><span class="keyword">var</span> foo=<span class="string">"foo"</span>;
-<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{
-<span class="keyword">var</span> foo = <span class="string">"bar"</span>;
-<span class="built_in">console</span>.log(foo);
-}
-test();
-<span class="comment">// bar</span>
-</code></pre><p>在这个函数里，因为它是在全局中定义，所以在定义这个函数时就决定了它的作用域链是这样的：<br>作用域链的第一位是<code>函数的活动对象</code>，这个活动对象有this ,arguments ,a 等参数。又因为是在全局作用域中定义的，作用域链的第二位，是<code>全局的变量对象</code>，包含全局作用域中的属性已经a 等等。</p>
-<p>在执行的时候，就会把这个作用域链压入到环境栈中。所以，在这个例子中，打印foo，就会优先从函数的活动对象找到foo 。所以是<code>bar</code>。</p>
-<p>但是如果是这样:</p>
-<pre><code>var foo=<span class="string">"foo"</span>;
-<span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span>{</span>
-<span class="comment">// var foo = "bar";</span>
-console.<span class="built_in">log</span><span class="params">(foo)</span>;
-}
-test<span class="params">()</span>;
-<span class="comment">// foo</span>
-</code></pre><p>就会打印foo.</p>
-<h4 id="闭包">闭包</h4><p>闭包是指有权访问另一个函数作用域中的变量的函数。<br>这么说不好理解，举个例子：</p>
-<pre><code><span class="keyword">var</span> obj={
-test : <span class="string">"Jobs"</span>
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">fuc</span>(<span class="params">para</span>)</span>{
-<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Object</span>)</span>{
-    <span class="keyword">return</span> <span class="built_in">Object</span>[para];
-}
-}
-
-<span class="keyword">var</span> a = fuc(<span class="string">"test"</span>);
-<span class="built_in">console</span>.log(a(obj));
-<span class="comment">//Jobs</span>
-</code></pre><p>在这里，首先定义一个函数fuc，它返回一个匿名函数。<br>然后用调用这个函数，并用a接收函数的返回值，也就是说现在a指向这这个返回的函数，通过a(obj)调用函数。</p>
-<p>这里吊诡的地方在于，para是func的参数，在调用a()的时候，如何能使用para的值呢？</p>
-<p>如果理解了作用域链就知道了，这是可以的。首先对于函数func内部的匿名函数，它的作用域链的前端首先是自身的活动对象，下一级是func的变量对象，然后再到全局的变量对象。所以在需要使用para的时候，会一级级的找下去。</p>
-<p>这里内部的匿名函数能使用外部函数的变量，这就是闭包的原理。</p>
-<p>这里需要注意的是 var a = func(‘test’)，这一句之后，函数对象并没有销毁，因为返回的匿名函数的作用域链还在指向这个活动对象，知道匿名函数销毁后，函数这个活动对象才会被销毁。<strong>这也是为什么大量使用闭包，会对性能有影响的原因。</strong></p>
-<h4 id="JavaScript_的预编译">JavaScript 的预编译</h4><p>JS 每段代码在执行之前，有一个预编译的过程，会首先处理<code>var</code>关键字和<code>function</code>声明。</p>
-<p>这里引用鸟哥的<a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="external">描述</a></p>
-<blockquote>
-<p> 在调用函数执行之前, 会首先创建一个活动对象, 然后搜寻这个函数中的局部变量定义,和函数定义, 将变量名和函数名都做为这个活动对象的同名属性, 对于局部变量定义,变量的值会在真正执行的时候才计算, 此时只是简单的赋为undefined.</p>
-</blockquote>
-<p>所以，当我们有：</p>
-<pre><code>foo<span class="params">()</span>;
-<span class="comment">//foo</span>
-<span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span>{</span>
-    console.<span class="built_in">log</span><span class="params">(<span class="string">"foo"</span>)</span>;
-}
-</code></pre><p>这里似乎调用foo()之时，函数都还没有定义，怎么能打印出值呢？这里就是预编译的神奇之处，相当于已经把foo的声明提前了，所以能打印出值。</p>
-<p>但是函数表达式却不然，因为函数表达式是一个赋值（计算）的过程，这是要在执行当中才计算的。所以：</p>
-<pre><code>foo<span class="params">()</span>;
-<span class="comment">//foo is not defined</span>
-foo = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    console.<span class="built_in">log</span><span class="params">(<span class="string">"foo"</span>)</span>;
-}
-</code></pre>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
+  <div class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+  </div>
+
 
         </div>
 
@@ -1120,7 +1147,7 @@ foo = <span class="function"><span class="keyword">function</span><span class="p
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1134,7 +1161,7 @@ foo = <span class="function"><span class="keyword">function</span><span class="p
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

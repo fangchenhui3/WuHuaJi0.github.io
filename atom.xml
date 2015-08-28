@@ -5,7 +5,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://wuhuaji.me//"/>
-  <updated>2015-07-21T14:14:29.670Z</updated>
+  <updated>2015-08-28T09:14:03.220Z</updated>
   <id>http://wuhuaji.me//</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[cn域名需要备案]]></title>
+    <link href="http://wuhuaji.me/2015/08/28/cn%E5%9F%9F%E5%90%8D%E9%9C%80%E8%A6%81%E5%A4%87%E6%A1%88/"/>
+    <id>http://wuhuaji.me/2015/08/28/cn域名需要备案/</id>
+    <published>2015-08-28T08:19:43.000Z</published>
+    <updated>2015-08-28T09:14:03.220Z</updated>
+    <content type="html"><![CDATA[<p>刚才注册了一个<code>.cn</code>后缀的域名，虽然相比.com 域名low了一点，但确是我所中意的，没有多想就买了下来。</p>
+<p>设置解析时发现，需要备案才能通过域名访问。在对域名进行实名认证之后，还需要由<code>注册局审核</code>，也就是备按，如果五天之内不备案，就不能按域名访问了。</p>
+<p>什么是备案？也就是需要提交你的个人信息、网站分类内容诸如此类的信息，以便监管你，确保你的网站不会出现不该出现的信息，如果备案成功，网站的底部会出现一块“营业执照”，说明这个网站是“登记在案”的。</p>
+<p>备案是为了监管，监管是为了限制某些自由，这也和建立互联网防火墙的初衷一样。</p>
+<p>这让我感到绝望。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>刚才注册了一个<code>.cn</code>后缀的域名，虽然相比.com 域名low了一点，但确是我所中意的，没有多想就买了下来。</p>
+<p>设置解析时发现，需要备案才能通过域名访问。在对域名进行实名认证之后，还需要由<code>注册局审核</code>，也就是备按，]]>
+    </summary>
+    
+      <category term="域名" scheme="http://wuhuaji.me/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+      <category term="备案" scheme="http://wuhuaji.me/tags/%E5%A4%87%E6%A1%88/"/>
+    
+      <category term="思考" scheme="http://wuhuaji.me/categories/%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写博客这件事]]></title>
+    <link href="http://wuhuaji.me/2015/08/19/write-blog/"/>
+    <id>http://wuhuaji.me/2015/08/19/write-blog/</id>
+    <published>2015-08-18T16:23:03.000Z</published>
+    <updated>2015-08-18T16:29:19.588Z</updated>
+    <content type="html"><![CDATA[<p>算起来有一个多月没有写博客了，并非是不想写，而是不知道写什么，期间每每要写些什么，又总有一个声音在反驳。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>算起来有一个多月没有写博客了，并非是不想写，而是不知道写什么，期间每每要写些什么，又总有一个声音在反驳。</p>
+]]>
+    </summary>
+    
+      <category term="博客" scheme="http://wuhuaji.me/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="思考" scheme="http://wuhuaji.me/categories/%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[回到过去]]></title>
